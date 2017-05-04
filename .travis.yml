@@ -1,2 +1,7 @@
 language: node_js
 node_js: node
+env:
+  global:
+  - ENCRYPTION_LABEL: "9e27be018e34"
+  - COMMIT_AUTHOR_EMAIL: "manuel@bitovi.com"
+after_success: bash deploy.sh
