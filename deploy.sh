@@ -4,14 +4,16 @@ set -ev # Exit with nonzero exit code if anything fails
 SOURCE_BRANCH="master"
 TARGET_BRANCH="master"
 
+echo "TRAVIS TAG: " $TRAVIS_TAG
+
 # only git tags should update the website
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_TAG" != "" ]; then
+if [ "$TRAVIS_TAG" == "" ]; then
     echo "Skipping deploy; just doing a build."
     exit 0
 fi
 
 # Save some useful information
-REPO="git@github.com:m-mujica/clone-steal-docs.git"
+REPO="git://github.com/m-mujica/clone-steal-docs.git"
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
