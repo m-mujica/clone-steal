@@ -24,6 +24,7 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 
 # Update the docs
+npm i
 node index
 
 # Now let's go have some fun with the cloned repo
